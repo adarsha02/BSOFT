@@ -26,7 +26,7 @@ public class Login extends JFrame
         subPanel.setLayout(null);
 
         JLabel logoBsoftLabel = new JLabel("");
-        logoBsoftLabel.setIcon(new ImageIcon("B:\\BSoft\\src\\com\\sahil\\BSOFTLogo.png"));
+        logoBsoftLabel.setIcon(new ImageIcon(getClass().getResource("/images/BSOFTLogo.png")));
         logoBsoftLabel.setBounds(7, 144, 156, 152);
         subPanel.add(logoBsoftLabel);
 

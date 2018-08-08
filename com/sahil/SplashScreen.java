@@ -52,7 +52,7 @@ public class SplashScreen extends javax.swing.JFrame {
 
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel.setIcon(new ImageIcon("B:\\BSoft\\src\\com\\sahil\\SplashScreenImage.png"));
+        lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/images/BSOFTLogo.png")));
         lblNewLabel.setBounds(131, 6, 233, 180);
         panel.add(lblNewLabel);
 
