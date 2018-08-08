@@ -123,6 +123,12 @@ public class Login extends JFrame
 
         loginexitbtn1.setForeground(new Color(0, 102, 153));
         loginexitbtn1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        loginexitbtn1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
 
         JLabel labelCopyright = new JLabel("Copyright © 2018 BSOFT. All rights reserved.");
         labelCopyright.setForeground(Color.WHITE);

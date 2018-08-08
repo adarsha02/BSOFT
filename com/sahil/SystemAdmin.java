@@ -24,6 +24,7 @@ public class SystemAdmin extends JFrame implements ActionListener {
     private JLabel systemadminlogo;
     public SystemAdmin() {
         setTitle("System Administrator");
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 745, 541);
         systemadminframepanel = new JPanel();
@@ -65,7 +66,7 @@ public class SystemAdmin extends JFrame implements ActionListener {
         systemadminemployeeIDtextfield.setColumns(10);
         systemadminlogo=new JLabel("");
         systemadminlogo.setHorizontalAlignment(SwingConstants.CENTER);
-        systemadminlogo.setIcon(new ImageIcon("B:\\BSoft\\src\\com\\sahil\\BSOFTLogo.png"));
+        systemadminlogo.setIcon(new ImageIcon(getClass().getResource("/images/BSOFTLogo.png")));
         systemadminlogo.setBounds(35,137,146,149);
         systemadminsearchframepanel.add(systemadminlogo);
 

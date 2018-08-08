@@ -37,6 +37,7 @@ public class Teller extends JFrame {
     }
     public void itscustomerdetailframe() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
         setBounds(100, 100, 745, 541);
         FramePanel = new JPanel();
         FramePanel.setLayout(null);
@@ -70,7 +71,7 @@ public class Teller extends JFrame {
 
         lblNewLabel = new JLabel("");
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel.setIcon(new ImageIcon("B:\\BSoft\\src\\com\\sahil\\BSOFTLogo.png"));
+        lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/images/BSOFTLogo.png")));
         lblNewLabel.setBounds(38, 23, 146, 149);
         clientinfopanel.add(lblNewLabel);
 
@@ -194,19 +195,19 @@ public class Teller extends JFrame {
                 }
                 else if (telleraccountnumbertextfield.getText().equals("")) {
                     JOptionPane.showMessageDialog(Teller.this, String.format("PLEASE ENTER ACCOUNT NUMBER"));
-                    telleraccountnumbertextfield.requestFocus();
+
                 }
                 else if(firstname.equals("") && lastname.equals("")) {
                     JOptionPane.showMessageDialog(Teller.this, String.format("PLEASE ENTER THE NAME"));
-                    tellerfirstnametextfield.requestFocus();
+
                 }
                 else if(firstname.equals("")) {
                     JOptionPane.showMessageDialog(Teller.this, String.format("PLEASE ENTER FIRST NAME"));
-                    tellerfirstnametextfield.requestFocus();
+
                 }
                 else if(lastname.equals("")) {
                     JOptionPane.showMessageDialog(Teller.this, String.format("PLEASE ENTER LAST NAME"));
-                    tellerlastnametextfield.requestFocus();
+
                 }
 
                 else {
@@ -271,6 +272,16 @@ public class Teller extends JFrame {
                 if(telleraccountnumbertextfield.getText().equals("")) {
                     telleraccountnumbertextfield.setText(" Account Number");
                 }
+            }
+        });
+        telleraccountnumbertextfield.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent eee) {
+                char  c= eee.getKeyChar();
+                if((c==KeyEvent.VK_ENTER)) {
+                    searchBtn.doClick();
+                }
+
             }
         });
         setVisible(true);

@@ -36,6 +36,8 @@ public class Teller2 extends JFrame {
 
     public void itstransactionframe() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        setTitle("Teller");
         setBounds(100, 100, 745, 541);
         framePanel = new JPanel();
         framePanel.setBackground(new Color(0, 102, 153));
@@ -369,7 +371,7 @@ public class Teller2 extends JFrame {
             JLabel logolabel = new JLabel("");
             logolabel.setBounds(50, 33, 156, 152);
             frameSubPanel.add(logolabel);
-            logolabel.setIcon(new ImageIcon("B:\\BSoft\\src\\com\\sahil\\BSOFTLogo.png"));
+            logolabel.setIcon(new ImageIcon(getClass().getResource("/images/BSOFTLogo.png")));
 
 
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -449,7 +451,7 @@ public class Teller2 extends JFrame {
 
             while (rst.next()) {
                 float temp = rst.getFloat("ClientAmount");
-                if (!(temp < 301)) {
+                if (!((temp-withamount) <301 )) {
                     TellerSecondLabel1.setText("BALANCE: RS  " + temp);
                     temp -= withamount;
                     PreparedStatement pst1 = con.prepareStatement

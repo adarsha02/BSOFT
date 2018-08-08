@@ -48,6 +48,7 @@ public class CustomerService extends JFrame implements ActionListener {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         setTitle("Customer Service");
+        setResizable(false);
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
         tabbedPane.setBounds(6, 6, 714, 489);
         contentPane.add(tabbedPane);
@@ -284,6 +285,21 @@ public class CustomerService extends JFrame implements ActionListener {
         deleteclientidtextfield.setForeground(new Color(0, 102, 153));
         deleteclientidtextfield.setFont(new Font("Tahoma", Font.ITALIC, 16));
         deleteclientidtextfield.setColumns(10);
+        deleteclientidtextfield.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent arg0) {
+                if( deleteclientidtextfield.getText().equals("Account N.O")) {
+                    deleteclientidtextfield.setText("");
+                }
+            }
+            @Override
+            public void focusLost(FocusEvent e) {
+                if( deleteclientidtextfield.getText().equals("")) {
+                    deleteclientidtextfield.setText("Account N.O");
+                }
+            }
+        });
+
 
         JButton btnSearch = new JButton("Search");
         btnSearch.setBounds(10, 400, 107, 35);
@@ -291,9 +307,20 @@ public class CustomerService extends JFrame implements ActionListener {
         btnSearch.setForeground(new Color(0, 153, 153));
         btnSearch.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 18));
 
+        deleteclientidtextfield.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent eee) {
+                char  c= eee.getKeyChar();
+                if((c==KeyEvent.VK_ENTER)) {
+                           btnSearch.doClick();
+                }
+
+            }
+        });
+
         deleteiconlogo=new JLabel("");
         deleteiconlogo.setHorizontalAlignment(SwingConstants.CENTER);
-        deleteiconlogo.setIcon(new ImageIcon("B:\\BSoft\\src\\com\\sahil\\BSOFTLogo.png"));
+        deleteiconlogo.setIcon(new ImageIcon(getClass().getResource("/images/BSOFTLogo.png")));
         deleteiconlogo.setBounds(30,108,177,149);
         deleteFrameSubPanel.add(deleteiconlogo);
 
